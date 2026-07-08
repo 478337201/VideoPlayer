@@ -6,8 +6,8 @@
 #include <QFileDialog>
 #include <QAction>
 
-VideoPlayerMainWindow::VideoPlayerMainWindow(QWidget *parent)
-    : QMainWindow(parent)
+VideoPlayerMainWindow::VideoPlayerMainWindow(QWidget* pParent)
+    : QMainWindow(pParent)
     , m_pUi(new Ui::VideoPlayerMainWindow)
     , m_pPlayer(new QMediaPlayer(this))
     , m_pAudioOutput(new QAudioOutput(this))
@@ -24,7 +24,7 @@ VideoPlayerMainWindow::VideoPlayerMainWindow(QWidget *parent)
     connect(m_pPlayer, &QMediaPlayer::playbackStateChanged,
         this, &VideoPlayerMainWindow::onPlaybackStateChanged);
 
-    QAction *pPlayPauseAction = new QAction(this);
+    QAction* pPlayPauseAction = new QAction(this);
     pPlayPauseAction->setShortcut(QKeySequence(Qt::Key_Space));
     connect(pPlayPauseAction, &QAction::triggered,
             this, &VideoPlayerMainWindow::onPlayPause);
@@ -61,11 +61,6 @@ void VideoPlayerMainWindow::onPlayPause()
 }
 
 void VideoPlayerMainWindow::onPlaybackStateChanged()
-{
-    updatePlayPauseButton();
-}
-
-void VideoPlayerMainWindow::updatePlayPauseButton()
 {
     if (m_pPlayer->playbackState() == QMediaPlayer::PlayingState)
         m_pUi->btnPlayPause->setText(tr("Pause"));

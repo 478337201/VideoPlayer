@@ -22,7 +22,7 @@ FORMS += \
     forms/videoplayermainwindow.ui
 
 TRANSLATIONS += \
-    mui/videoplayer_zh_CN.ts
+    mui/zh_CN/videoplayer.ts
 CONFIG += lrelease embed_translations
 
 # Default rules for deployment.

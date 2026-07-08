@@ -15,7 +15,7 @@ class VideoPlayerMainWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit VideoPlayerMainWindow(QWidget *parent = nullptr);
+    explicit VideoPlayerMainWindow(QWidget* pParent = nullptr);
     ~VideoPlayerMainWindow() override;
 
 private slots:
@@ -24,9 +24,7 @@ private slots:
     void onPlaybackStateChanged();
 
 private:
-    void updatePlayPauseButton();
-
-    Ui::VideoPlayerMainWindow *m_pUi;
-    QMediaPlayer *m_pPlayer;
-    QAudioOutput *m_pAudioOutput;
+    Ui::VideoPlayerMainWindow* m_pUi = nullptr;
+    QMediaPlayer* m_pPlayer = nullptr;
+    QAudioOutput* m_pAudioOutput = nullptr;
 };
